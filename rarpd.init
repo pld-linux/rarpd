@@ -2,7 +2,7 @@
 #
 # rarpd:	reverse address resolution protocol deamon
 #
-# chkconfig:    2345  15 85
+# chkconfig:	2345 15 85
 #
 # description:	Reverse address resolution protocol deamon.
 #		This deamon is for 2.4.x kernel.
@@ -46,11 +46,11 @@ case "$1" in
 		msg_already_running rarpd
 		exit 1
 	fi
-        ;;
+	;;
   stop)
-        # Stop daemons.
-        # show "Stopping %s service" rarpd
 	if [ -f /var/lock/subsys/rarpd ]; then
+		# Stop daemons.
+		# show "Stopping %s service" rarpd
 		msg_stopping rarpd
 		killproc rarpd
 		RETVAL=$?
@@ -59,18 +59,18 @@ case "$1" in
 		msg_not_running rarpd
 		exit 1
 	fi	
-        ;;
-  restart)
-        $0 stop
+	;;
+  restart|reload)
+	$0 stop
 	$0 start
-        ;;
+	;;
   status)
 	status rarpd
 	RETVAL=$?
-        ;;
+	;;
   *)
-	msg_usage "$0 {start|stop|status|restart}"
-        exit 1
+	msg_usage "$0 {start|stop|restart|reload|status}"
+	exit 1
 esac
 
 exit $RETVAL
