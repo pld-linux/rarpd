@@ -11,10 +11,10 @@ Source0:	ftp://ftp.dementia.org/pub/net-tools/%{name}-%{version}.tar.gz
 Source1:	%{name}.init
 Source2:	%{name}.sysconfig
 Patch0:		%{name}-libnet1.patch
-Prereq:		rc-scripts >= 0.2.0
-Prereq:		/sbin/chkconfig
 BuildRequires:	libnet1-devel
 BuildRequires:	libpcap-devel
+PreReq:		rc-scripts >= 0.2.0
+Requires(post,preun):	/sbin/chkconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
