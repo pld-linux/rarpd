@@ -37,8 +37,8 @@ rm -rf $RPM_BUILD_ROOT
 
 install -d $RPM_BUILD_ROOT{%{_mandir}/man8,%{_sysconfdir}/{sysconfig,rc.d/init.d}}
 install rarpd.8 $RPM_BUILD_ROOT%{_mandir}/man8
-install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/rc.d/init.d/rarpd
-install %{SOURCE2} $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig/rarpd
+install %{SOURCE1} $RPM_BUILD_ROOT/etc/rc.d/init.d/rarpd
+install %{SOURCE2} $RPM_BUILD_ROOT/etc/sysconfig/rarpd
 
 %clean
 rm -rf $RPM_BUILD_ROOT
