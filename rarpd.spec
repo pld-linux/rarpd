@@ -2,7 +2,7 @@ Summary:	rarpd - reverse address resolution protocol daemon
 Summary(pl):	rarpd - demon do protoko³u odwrotnego odwzorowywania adresów
 Name:		rarpd
 Version:	1.1
-Release:	2
+Release:	3
 Epoch:		1
 License:	GPL-like?????
 Group:		Networking/Daemons
@@ -10,9 +10,10 @@ Source0:	ftp://ftp.dementia.org/pub/net-tools/%{name}-%{version}.tar.gz
 # Source0-md5:	04e2ca849e758d0b88c8281775ec3b58
 Source1:	%{name}.init
 Source2:	%{name}.sysconfig
+Patch0:		%{name}-libnet1.patch
 Prereq:		rc-scripts >= 0.2.0
 Prereq:		/sbin/chkconfig
-BuildRequires:	libnet-devel
+BuildRequires:	libnet1-devel
 BuildRequires:	libpcap-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -24,6 +25,7 @@ Demon do protoko³u odwrotnego odwzorowywania adresów.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %configure2_13
