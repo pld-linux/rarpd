@@ -65,6 +65,6 @@ fi
 %defattr(644,root,root,755)
 %doc *gz
 %{_mandir}/man8/rarpd*
-%config(noreplace) %verify(not size mtime md5) /etc/sysconfig/rarpd
+%attr(600,root,root) %config(noreplace) %verify(not size mtime md5) /etc/sysconfig/rarpd
 %attr(755,root,root) %{_sbindir}/rarpd
 %attr(754,root,root) /etc/rc.d/init.d/rarpd
