@@ -2,7 +2,7 @@ Summary:	rarpd - reverse address resolution protocol daemon
 Summary(pl):	rarpd - demon do protoko³u odwrotnego odwzorowywania adresów
 Name:		rarpd
 Version:	1.1
-Release:	1
+Release:	2
 Epoch:		1
 License:	GPL-like?????
 Group:		Networking/Daemons
@@ -40,8 +40,6 @@ install rarpd.8 $RPM_BUILD_ROOT%{_mandir}/man8
 install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/rc.d/init.d/rarpd
 install %{SOURCE2} $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig/rarpd
 
-gzip -9nf README TODO
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -63,7 +61,7 @@ fi
 
 %files
 %defattr(644,root,root,755)
-%doc *gz
+%doc README TODO
 %{_mandir}/man8/rarpd*
 %attr(600,root,root) %config(noreplace) %verify(not size mtime md5) /etc/sysconfig/rarpd
 %attr(755,root,root) %{_sbindir}/rarpd
