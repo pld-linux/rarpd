@@ -1,0 +1,9 @@
+# $Id$
+# Customized settings for rarpd
+#
+# Interface to bind.
+#INTERFACE="eth0"
+INTERFACE=""
+
+# Define nice level for rarpd
+SERVICE_RUN_NICE_LEVEL="+0"
