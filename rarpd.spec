@@ -7,6 +7,7 @@ Epoch:		1
 License:	GPL-like?????
 Group:		Networking/Daemons
 Source0:	ftp://ftp.dementia.org/pub/net-tools/%{name}-%{version}.tar.gz
+# Source0-md5:	04e2ca849e758d0b88c8281775ec3b58
 Source1:	%{name}.init
 Source2:	%{name}.sysconfig
 Prereq:		rc-scripts >= 0.2.0
