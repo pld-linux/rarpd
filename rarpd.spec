@@ -25,7 +25,7 @@ Demon do protoko³u odwrotnego odwzorowywania adresów.
 %setup -q
 
 %build
-./configure
+%configure2_13
 
 %{__make}
 
@@ -35,8 +35,10 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
 	SBINDIR=%{_sbindir}
 
-install -d $RPM_BUILD_ROOT%{_mandir}/man8
+install -d $RPM_BUILD_ROOT{%{_mandir}/man8,%{_sysconfdir}/{sysconfig,rc.d/init.d}}
 install rarpd.8 $RPM_BUILD_ROOT%{_mandir}/man8
+install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/rc.d/init.d/rarpd
+install %{SOURCE2} $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig/rarpd
 
 gzip -9nf README TODO
 
