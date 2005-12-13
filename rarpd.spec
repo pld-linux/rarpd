@@ -13,7 +13,7 @@ Source2:	%{name}.sysconfig
 Patch0:		%{name}-libnet1.patch
 BuildRequires:	libnet1-devel
 BuildRequires:	libpcap-devel
-PreReq:		rc-scripts >= 0.2.0
+Requires:	rc-scripts >= 0.2.0
 Requires(post,preun):	/sbin/chkconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -66,6 +66,6 @@ fi
 %defattr(644,root,root,755)
 %doc README TODO
 %{_mandir}/man8/rarpd*
-%attr(600,root,root) %config(noreplace) %verify(not size mtime md5) /etc/sysconfig/rarpd
+%attr(600,root,root) %config(noreplace) %verify(not md5 mtime size) /etc/sysconfig/rarpd
 %attr(755,root,root) %{_sbindir}/rarpd
 %attr(754,root,root) /etc/rc.d/init.d/rarpd
