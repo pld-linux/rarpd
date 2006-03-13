@@ -13,8 +13,9 @@ Source2:	%{name}.sysconfig
 Patch0:		%{name}-libnet1.patch
 BuildRequires:	libnet1-devel
 BuildRequires:	libpcap-devel
-Requires:	rc-scripts >= 0.2.0
+BuildRequires:	rpmbuild(macros) >= 1.268
 Requires(post,preun):	/sbin/chkconfig
+Requires:	rc-scripts >= 0.2.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -48,17 +49,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %post
 /sbin/chkconfig --add rarpd
-if [ -f /var/lock/subsys/rarpd ]; then
-	/etc/rc.d/init.d/rarpd restart >&2
-else
-	echo "Run \"/etc/rc.d/init.d/rarpd start\" to start rarpd daemon."
-fi
+%service rarpd restart "rarpd daemon"
 
 %preun
 if [ "$1" = "0" ];then
-	if [ -f /var/lock/subsys/rarpd ]; then
-		/etc/rc.d/init.d/rarpd stop >&2
-	fi
+	%service rarpd stop
 	/sbin/chkconfig --del rarpd
 fi
 
