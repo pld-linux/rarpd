@@ -1,5 +1,5 @@
 Summary:	rarpd - reverse address resolution protocol daemon
-Summary(pl):	rarpd - demon do protoko≥u odwrotnego odwzorowywania adresÛw
+Summary(pl.UTF-8):   rarpd - demon do protoko≈Çu odwrotnego odwzorowywania adres√≥w
 Name:		rarpd
 Version:	1.1
 Release:	4
@@ -21,8 +21,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 Reverse Address Resolution Protocol daemon.
 
-%description -l pl
-Demon do protoko≥u odwrotnego odwzorowywania adresÛw.
+%description -l pl.UTF-8
+Demon do protoko≈Çu odwrotnego odwzorowywania adres√≥w.
 
 %prep
 %setup -q
