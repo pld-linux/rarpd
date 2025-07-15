@@ -26,7 +26,7 @@ Demon do protokołu odwrotnego odwzorowywania adresów.
 
 %prep
 %setup -q
-%patch0 -p1
+%patch -P0 -p1
 
 %build
 %configure2_13
